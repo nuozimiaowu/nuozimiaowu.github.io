@@ -14,9 +14,7 @@ Checked in the Codex Chromium in-app browser against the local site:
 - Official Yani Neko WebP images load locally. The active hero uses the actual anime visual and an alternate official character illustration.
 - Publication filters: All = 5; Navigation = 4; AIGC = current-research empty state with the correct topic.
 - Reset from an empty state restores all 5 publications.
-- SympLoc citation dialog shows an arXiv `@misc` entry with its verified eprint ID.
-- Native citation and source dialogs open and close.
-- The production build's A2GC copy button successfully copied BibTeX and changed its label to “Copied!”.
+- The source dialog opens and closes.
 - English/Chinese switching updates the document language, navigation, body, labels, and summaries.
 - Light/dark switching updates page theme and accessible action labels.
 - Mobile menu opens, closes after navigation, and restores its correct accessible label.
@@ -26,6 +24,13 @@ Checked in the Codex Chromium in-app browser against the local site:
 - With reduced motion emulated, smooth scrolling becomes `auto` and the hero animation becomes `none`; the emulation was reset after the check.
 - The three generated research cartoons load at widths 320, 390, 768, 1024, and 1440 CSS pixels, with no horizontal overflow. The detection card has HTML FAKE / REAL labels; the collaboration and fork-in-the-road scenes were visually inspected on mobile.
 - Root and project-subpath production builds both succeed. Image paths use Vite's configured base URL.
+
+### Publication layout simplification
+
+- Removed publication thumbnails, venue/topic badges and BibTeX controls. All five entries retain their title, authors, bilingual summary and Paper link; A2GC also retains its documented Code link.
+- At widths 390, 900 and 1440 CSS pixels, publication text occupies the full row and there is no horizontal overflow. The mobile layout was visually inspected.
+- Navigation filtering still returns four papers, resetting returns five, and Chinese switching updates summaries and resource labels.
+- The updated production build and JavaScript syntax check pass.
 
 ## Independent review
 

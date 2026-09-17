@@ -123,8 +123,18 @@ function renderPublications() {
   const shown = publications.filter(p => filter === 'all' || p.topic === filter);
   const interest = filter === 'aigc' ? t('MLLMs for AIGC detection', '面向 AIGC 检测的多模态大模型') : t('Agentic AI', '智能体 AI');
   document.querySelector('.results-count').textContent = t(`${shown.length} ${shown.length===1?'paper':'papers'}`, `${shown.length} 篇论文`);
-  document.getElementById('publication-list').innerHTML = shown.length ? shown.map((p,i)=>`<article class="publication-row"><div class="paper-visual paper-${p.topic}"><span class="paper-year">${esc(p.year)}</span><svg viewBox="0 0 180 124" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${(research.find(r=>r.id===p.topic)||research[0]).art}</svg><span class="paper-category">${esc(p.venue)}</span></div><div class="paper-content"><div class="paper-labels"><span class="venue-label">${esc(p.venue)} ${esc(p.year)}</span><span class="topic-label">${p.topic==='aigc'?'AIGC DETECTION':p.topic==='navigation'?'EMBODIED NAVIGATION':p.topic==='agentic'?'AGENTIC AI':'COMPUTER VISION'}</span></div><h3>${external(p.paperUrl,esc(p.title),'paper-title')}</h3><p class="authors">${esc(Array.isArray(p.authors)?p.authors.join(', '):p.authors).replace(/Tianyi Shang/g,'<strong>Tianyi Shang</strong>')}</p>${p.summary?`<p class="paper-summary">${esc(p.summary[lang]||p.summary.en)}</p>`:''}<div class="paper-links">${external(p.paperUrl,`${icon('book')}${t('Paper','论文')}`,'paper-link')}${p.codeUrl?external(p.codeUrl,`${icon('code')}${t('Code','代码')}`,'paper-link'):''}<button class="paper-link" data-cite="${esc(p.id)}">${icon('copy')}BibTeX</button></div></div></article>`).join('') : `<div class="empty-publications">${cat()}<h3>${t('A new direction, an open notebook.','新的方向，新的探索。')}</h3><p>${t(interest + ' is one of my current research interests. Explore my other selected papers or visit Google Scholar for the full publication list.', interest + '是我目前的研究兴趣之一。欢迎浏览其他精选论文，或前往 Google Scholar 查看完整列表。')}</p><button class="button button-secondary" data-reset>${t('View all selected work','查看全部精选论文')}${icon('right')}</button></div>`;
-  document.querySelectorAll('[data-cite]').forEach(button=>button.addEventListener('click',()=>openCitation(button.dataset.cite)));
+  document.getElementById('publication-list').innerHTML = shown.length ? shown.map(p=>`
+    <article class="publication-row">
+      <div class="paper-content">
+        <h3>${external(p.paperUrl,esc(p.title),'paper-title')}</h3>
+        <p class="authors">${esc(Array.isArray(p.authors)?p.authors.join(', '):p.authors).replace(/Tianyi Shang/g,'<strong>Tianyi Shang</strong>')}</p>
+        ${p.summary?`<p class="paper-summary">${esc(p.summary[lang]||p.summary.en)}</p>`:''}
+        <div class="paper-links">
+          ${external(p.paperUrl,`${icon('book')}${t('Paper','论文')}`,'paper-link')}
+          ${p.codeUrl?external(p.codeUrl,`${icon('code')}${t('Code','代码')}`,'paper-link'):''}
+        </div>
+      </div>
+    </article>`).join('') : `<div class="empty-publications">${cat()}<h3>${t('A new direction, an open notebook.','新的方向，新的探索。')}</h3><p>${t(interest + ' is one of my current research interests. Explore my other selected papers or visit Google Scholar for the full publication list.', interest + '是我目前的研究兴趣之一。欢迎浏览其他精选论文，或前往 Google Scholar 查看完整列表。')}</p><button class="button button-secondary" data-reset>${t('View all selected work','查看全部精选论文')}${icon('right')}</button></div>`;
   document.querySelector('[data-reset]')?.addEventListener('click',()=>setFilter('all'));
 }
 

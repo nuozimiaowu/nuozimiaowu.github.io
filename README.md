@@ -11,7 +11,7 @@ A bilingual academic homepage for Tianyi Shang, a Ph.D. student at Purdue Univer
 - English / 中文, with saved language preference.
 - Light / dark themes, responsive navigation and reduced-motion support.
 - Three illustrated research directions: FAKE / REAL comparison, a collaborating cat team, and choosing a route at a fork.
-- Five verified selected publications, topic filters, paper/code links and copyable BibTeX.
+- Five verified selected publications in a text-only list with titles, authors, bilingual summaries, topic filters and paper/code links.
 - Official Yani Neko balcony / character views and an interactive expression switch.
 - Local font files and responsive WebP artwork; no backend or analytics.
 
@@ -65,4 +65,4 @@ npm run build
 
 Official anime artwork and logo: ©にゃんにゃんファクトリー・講談社／ヤニねこ製作委員会. Sources are linked in `docs/anime-artwork.md`. This is an unofficial personal academic homepage. The three research illustrations are generated adaptations made with OpenAI ImageGen, not official frames; interactive speech is original website copy. Font license texts are retained under `public/licenses/`.
 
-No email address, enrollment dates, awards, citation metrics or CV were invented. Preprints are explicitly distinguished from conference publications. Academic facts and their sources are documented in `SOURCES.md`.
+No email address, enrollment dates, awards, citation metrics or CV were invented. The publication data retains venue and preprint metadata. Academic facts and their sources are documented in `SOURCES.md`.
