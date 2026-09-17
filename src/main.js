@@ -4,6 +4,7 @@ import '@fontsource/kalam/latin-400.css';
 import './style.css';
 import './yanineko.css';
 import { publications } from './publications.js';
+import { heroArtwork } from './hero-art.js';
 
 const SCHOLAR = 'https://scholar.google.com/citations?hl=en&user=YmHM1XkAAAAJ';
 const SHU = 'https://scholar.google.com/citations?user=q4qu28QAAAAJ&hl=en';
@@ -15,7 +16,7 @@ let lang = storage.get('tianyi-language') === 'zh' ? 'zh' : 'en';
 let theme = storage.get('tianyi-theme') === 'dark' ? 'dark' : 'light';
 let filter = 'all';
 let activeSection = 'about';
-let artMode = 'scene';
+let heroIndex = 0;
 let observer;
 const icons = {
   arrow: '<path d="M7 17 17 7M7 7h10v10"/>',
@@ -81,18 +82,24 @@ function render() {
           <div class="hero-buttons"><a href="#publications" class="button button-primary">${icon('book')}${t('Explore my research','了解我的研究')}${icon('right')}</a>${external(SCHOLAR, 'Google Scholar', 'button button-secondary')}</div>
           <div class="hero-footnote">${icon('cap')}<span>${t('Advised by','导师：')} ${external(SHU, 'Prof. Shu Hu', 'inline-link')}<span class="footnote-dot">·</span>Purdue University</span></div>
         </div>
-        <div class="hero-art yani-hero-art">
-          <div class="anime-scene-wrap" data-art="${artMode}">
-            <div class="anime-stage">
-              <img class="anime-scene" src="${assetUrl('images/yanineko/kv00.webp')}" alt="${t('Yani Neko, the gray-green-haired protagonist of the anime, relaxing on her apartment balcony. Official anime teaser visual.','《尼古喵喵》官方先导视觉图：灰绿色短发的主角尼古喵喵在公寓阳台上。')}" width="1500" height="2168" fetchpriority="high" ${artMode==='character'?'hidden':''}>
-              <img class="anime-character" src="${assetUrl('images/yanineko/chara-pic01.webp')}" alt="${t('Official Yani Neko character illustration: pale green T-shirt, blue-gray trousers and cat ears.','尼古喵喵官方角色立绘：浅绿色宽松 T 恤、蓝灰色长裤与猫耳。')}" width="1000" height="1166" ${artMode==='scene'?'hidden':''}>
+        <div class="hero-art yani-hero-art" role="group" aria-roledescription="${t('carousel','轮播图')}" aria-label="${t('Yani Neko gallery','尼古喵喵画廊')}">
+          <div class="anime-scene-wrap">
+            <button class="anime-stage" id="hero-next" aria-label="${t('Show next Yani Neko image','点击切换下一张尼古喵喵图片')}" aria-describedby="hero-art-status">
+              ${heroArtwork.map((art,index)=>`<img class="hero-slide" data-hero-slide="${index}" src="${assetUrl(`images/yanineko/${art.file}`)}" alt="${esc(t(...art.alt))}" width="${art.width}" height="${art.height}" style="object-fit:${art.fit};object-position:${art.position}" fetchpriority="${index===0?'high':'low'}" ${index!==heroIndex?'hidden':''}>`).join('')}
               <img class="anime-logo" src="${assetUrl('images/yanineko/logo.webp')}" alt="ヤニねこ" width="360" height="121">
               <span class="scene-index">${t('A LITTLE BREAK FROM RESEARCH','研究间隙，放空一下')}</span>
-            </div>
-            <div class="anime-panel-caption"><span>尼古喵喵 <b>ヤニねこ</b></span><span>OFF DUTY, NYA.</span></div>
+            </button>
+            <div class="anime-panel-caption"><span>尼古喵喵 <b>ヤニねこ</b></span><span>${t('CLICK IMAGE TO SWITCH','点击图片，切换下一张')}</span></div>
           </div>
           <div class="yani-sticker"><span>ニャー。</span><small>${t('thinking… probably.','正在思考……大概吧。')}</small></div>
-          <div class="anime-art-controls" role="group" aria-label="${t('Choose Yani Neko artwork','切换尼古喵喵画面')}"><button data-art-mode="scene" aria-pressed="${artMode==='scene'}">${t('Balcony days','阳台日常')}</button><button data-art-mode="character" aria-pressed="${artMode==='character'}">${t('Meet Yani Neko','角色立绘')}</button><a href="https://yanineko-anime.com/" target="_blank" rel="noopener noreferrer">${t('Anime official site','动画官网')}${icon('arrow')}</a></div>
+          <div class="anime-art-controls">
+            <div class="hero-gallery-nav">
+              <button id="hero-prev" class="hero-gallery-arrow" aria-label="${t('Previous image','上一张图片')}">${icon('right','arrow-back')}</button>
+              <div class="hero-gallery-pages" role="group" aria-label="${t('Choose an image','选择图片')}">${heroArtwork.map((art,index)=>`<button data-hero-index="${index}" aria-controls="hero-next" aria-pressed="${heroIndex===index}" aria-label="${esc(t(...art.label))}" title="${esc(t(...art.label))}">${String(index+1).padStart(2,'0')}</button>`).join('')}</div>
+              <button id="hero-forward" class="hero-gallery-arrow" aria-label="${t('Next image','下一张图片')}">${icon('right')}</button>
+            </div>
+            <div class="hero-gallery-meta"><span id="hero-art-status" aria-live="polite" aria-atomic="true">${heroIndex+1} / ${heroArtwork.length} · ${t(...heroArtwork[heroIndex].label)}</span><a href="https://yanineko-anime.com/" target="_blank" rel="noopener noreferrer">${t('Anime official site','动画官网')}${icon('arrow')}</a></div>
+          </div>
         </div>
       </section>
       <div class="intro-strip container"><span>${t('BUILDING UNDERSTANDING, ONE QUESTION AT A TIME','每一个问题，都是理解世界的新起点')}</span><div><span>${t('Perceive','感知')}</span><i>✳</i><span>${t('Reason','推理')}</span><i>✳</i><span>${t('Explore','探索')}</span></div></div>
@@ -126,6 +133,7 @@ function renderPublications() {
   document.getElementById('publication-list').innerHTML = shown.length ? shown.map(p=>`
     <article class="publication-row">
       <div class="paper-content">
+        ${publicationVenue(p)}
         <h3>${external(p.paperUrl,esc(p.title),'paper-title')}</h3>
         <p class="authors">${esc(Array.isArray(p.authors)?p.authors.join(', '):p.authors).replace(/Tianyi Shang/g,'<strong>Tianyi Shang</strong>')}</p>
         ${p.summary?`<p class="paper-summary">${esc(p.summary[lang]||p.summary.en)}</p>`:''}
@@ -142,6 +150,24 @@ function setFilter(next) {
   filter = next;
   document.querySelectorAll('[data-filter]').forEach(b=>{b.classList.toggle('selected',b.dataset.filter===filter);b.setAttribute('aria-pressed',String(b.dataset.filter===filter));});
   renderPublications();
+}
+
+function publicationVenue(p) {
+  const preprint = /preprint|arxiv/i.test(p.venue);
+  const venueNames = {
+    CVPR: 'IEEE/CVF Conference on Computer Vision and Pattern Recognition',
+    IROS: 'IEEE/RSJ International Conference on Intelligent Robots and Systems',
+  };
+  const label = preprint ? t('arXiv preprint', 'arXiv 预印本') : p.venue;
+  const fullName = preprint ? t('arXiv preprint', 'arXiv 预印本') : (venueNames[p.venue] || p.venue);
+  return `<span class="publication-venue ${preprint?'venue-preprint':'venue-published'}" title="${esc(fullName)}" aria-label="${esc(`${fullName}, ${p.year}`)}"><span class="venue-dot" aria-hidden="true"></span>${esc(label)} <span class="venue-year">${esc(p.year)}</span></span>`;
+}
+
+function setHeroImage(next) {
+  heroIndex = (next + heroArtwork.length) % heroArtwork.length;
+  document.querySelectorAll('[data-hero-slide]').forEach(image => { image.hidden = Number(image.dataset.heroSlide) !== heroIndex; });
+  document.querySelectorAll('[data-hero-index]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.heroIndex) === heroIndex)));
+  document.getElementById('hero-art-status').textContent = `${heroIndex+1} / ${heroArtwork.length} · ${t(...heroArtwork[heroIndex].label)}`;
 }
 
 function showDialog(title,html) {
@@ -171,13 +197,16 @@ function bindEvents() {
   document.querySelectorAll('#mobile-nav a').forEach(a=>a.addEventListener('click',()=>{document.getElementById('mobile-nav').hidden=true;document.getElementById('menu').setAttribute('aria-expanded','false');document.getElementById('menu').innerHTML=icon('menu');document.getElementById('menu').setAttribute('aria-label',t('Open menu','打开菜单'));}));
   document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));
   document.querySelectorAll('[data-research]').forEach(a=>a.addEventListener('click',()=>setFilter(a.dataset.research)));
-  document.querySelectorAll('[data-art-mode]').forEach(button=>button.addEventListener('click',()=>{
-    artMode=button.dataset.artMode;
-    document.querySelector('.anime-scene-wrap').dataset.art=artMode;
-    document.querySelector('.anime-scene').hidden=artMode!=='scene';
-    document.querySelector('.anime-character').hidden=artMode!=='character';
-    document.querySelectorAll('[data-art-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.artMode===artMode)));
-  }));
+  document.getElementById('hero-next').addEventListener('click',()=>setHeroImage(heroIndex+1));
+  document.getElementById('hero-forward').addEventListener('click',()=>setHeroImage(heroIndex+1));
+  document.getElementById('hero-prev').addEventListener('click',()=>setHeroImage(heroIndex-1));
+  document.querySelectorAll('[data-hero-index]').forEach(button=>button.addEventListener('click',()=>setHeroImage(Number(button.dataset.heroIndex))));
+  document.querySelector('.yani-hero-art').addEventListener('keydown',event=>{
+    if (event.key==='ArrowLeft' || event.key==='ArrowRight') {
+      event.preventDefault();
+      setHeroImage(heroIndex+(event.key==='ArrowLeft'?-1:1));
+    }
+  });
   document.getElementById('close-dialog').addEventListener('click',()=>document.getElementById('info-dialog').close());
   document.getElementById('info-dialog').addEventListener('click',e=>{if(e.target===e.currentTarget){const rect=e.currentTarget.getBoundingClientRect();if(e.clientX<rect.left||e.clientX>rect.right||e.clientY<rect.top||e.clientY>rect.bottom)e.currentTarget.close();}});
   document.getElementById('credits').addEventListener('click',()=>showDialog(t('Sources & artwork','资料与素材来源'),`<div class="credits-content"><p>${t('Academic background and research interests are provided by Tianyi Shang. Selected publications are linked to their original sources.','学术背景及研究方向由 Tianyi Shang 本人提供。精选论文均链接至原始来源。')}</p>${external(SCHOLAR,"Tianyi Shang · Google Scholar",'text-link')}${external(LAB,'Purdue M2 Lab','text-link')}${external('https://cv4ra.github.io/','Zhenyu Li · Academic homepage','text-link')}<hr><p>${t('The three research-card comics are generated adaptations made with OpenAI ImageGen using Yani Neko character references. They illustrate research concepts and are not official anime frames.','三张研究卡片的小漫画使用 OpenAI ImageGen，基于尼古喵喵角色参考生成，用于表达研究概念，并非官方动画画面。')}</p><p>${t('This homepage features the actual protagonist and official promotional artwork from the TV anime Yani Neko (ヤニねこ). Images and logo come from the official anime website. Artwork ©にゃんにゃんファクトリー・講談社／ヤニねこ製作委員会. This is an unofficial personal academic homepage. The interactive dialogue is original website copy, not quotes from the anime.','本站使用《尼古喵喵》（ヤニねこ）中的真实主角形象、官方先导视觉图、角色立绘、表情与标志，素材均来自动画官网。动画素材版权：©にゃんにゃんファクトリー・講談社／ヤニねこ製作委員会。本站为非官方个人学术主页；互动气泡是原创网页文案，并非动漫台词。')}</p>${external('https://yanineko-anime.com/',t('Yani Neko · Official website','尼古喵喵 · 官方网站'),'text-link')}</div>`));

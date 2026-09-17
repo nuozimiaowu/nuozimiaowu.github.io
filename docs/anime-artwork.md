@@ -13,8 +13,11 @@ Copyright: ©にゃんにゃんファクトリー・講談社／ヤニねこ製�
 | `public/images/yanineko/chara-icon01.webp` | [Character icon](https://yanineko-anime.com/wp/wp-content/themes/yanineko-theme/images/chara-icon01.webp) | Header, footer, favicon |
 | `public/images/yanineko/chara-face01.webp` | [Character expressions](https://yanineko-anime.com/wp/wp-content/themes/yanineko-theme/images/chara-face01.webp) | Clickable expression switch |
 | `public/images/yanineko/logo.webp` | [Anime logo](https://yanineko-anime.com/wp/wp-content/themes/yanineko-theme/images/logo.webp) | Identify the anime in the hero panel |
+| `public/images/yanineko/hero-key-visual.webp` | [Main key visual](https://yanineko-anime.com/wp/wp-content/themes/yanineko-theme/images/kv01.webp) | Hero gallery: the neighborhood |
+| `public/images/yanineko/hero-closeup.webp` | [Episode 1 still 01](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_01-01.jpg) | Hero gallery: Yani Neko in profile |
+| `public/images/yanineko/hero-workday.webp` | [Episode 1 still 02](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_01-02.jpg) | Hero gallery: a workday with her coworkers |
 
-These files are copied unchanged from URLs observed in the official page. Layout and expression framing are performed with CSS. This is not a generated recreation of the character.
+Official WebP files are copied unchanged from URLs observed in the official page. The two episode-still JPEG originals are retained in `design/hero/`; `scripts/optimize-hero-art.mjs` resizes them to 1280 pixels wide and encodes WebP copies for the site. Layout and framing are performed with CSS. The five hero images are official artwork, not generated recreations.
 
 The palette uses the official site's observed colors: old-paper white `#EFEEE2`, charcoal `#252525`, yellow `#FFB400`. Character green supports the research cards. The site is an unofficial personal academic homepage and includes attribution in its footer and source dialog. Interactive dialogue is original website copy, not anime quotations.
 

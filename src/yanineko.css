@@ -48,25 +48,35 @@ body {
 .yani-hero-art { margin: 0 4px 0 0; }
 .anime-scene-wrap { border: 2px solid var(--anime-black); border-radius: 5px; box-shadow: 9px 9px 0 var(--anime-yellow); transform: rotate(1.5deg); overflow: hidden; transition: transform .4s ease; background: var(--anime-yellow); }
 .yani-hero-art:hover .anime-scene-wrap { transform: rotate(.4deg); }
-.anime-stage { height: 455px; position: relative; overflow: hidden; background-color: #eeeedd; background-image: radial-gradient(#9da18550 1px, transparent 1px); background-size: 9px 9px; }
+.anime-stage { display: block; width: 100%; padding: 0; border: 0; text-align: left; height: 455px; position: relative; overflow: hidden; background-color: #eeeedd; background-image: radial-gradient(#9da18550 1px, transparent 1px); background-size: 9px 9px; }
 .anime-stage [hidden] { display: none; }
-.anime-scene { width: 100%; height: 100%; object-fit: cover; object-position: 50% 34%; animation: scene-in .4s ease both; }
-.anime-character { width: 100%; height: 100%; object-fit: contain; animation: scene-in .4s ease both; }
+.hero-slide { display: block; width: 100%; height: 100%; animation: scene-in .4s ease both; }
+.anime-stage:focus-visible { outline: 3px solid var(--anime-yellow); outline-offset: -6px; }
 .anime-stage > .anime-logo { position: absolute; top: 19px; left: 19px; width: 163px; height: auto; z-index: 1; filter: drop-shadow(1px 2px 0 #25252566); }
 .scene-index { position: absolute; bottom: 14px; left: 16px; background: var(--anime-black); color: #fff; padding: 7px 9px; font-size: 8px; font-weight: 700; letter-spacing: 1.2px; }
 .anime-panel-caption { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; color: #efeee2; background: var(--anime-black); gap: 10px; }
 .anime-panel-caption > span:first-child { font-size: 14px; font-weight: 700; letter-spacing: 1px; }
 .anime-panel-caption b { font-size: 10px; color: var(--anime-yellow); margin-left: 7px; font-weight: 400; }
 .anime-panel-caption > span:last-child { font-size: 8px; letter-spacing: 1.4px; }
-.yani-sticker { position: absolute; left: -30px; bottom: 77px; z-index: 2; background: var(--surface); border: 2px solid var(--anime-black); box-shadow: 3px 3px 0 var(--anime-black); padding: 12px 22px; transform: rotate(-8deg); border-radius: 44% 47% 41% 35%; text-align: center; }
+.yani-sticker { position: absolute; left: -30px; bottom: 120px; z-index: 2; background: var(--surface); border: 2px solid var(--anime-black); box-shadow: 3px 3px 0 var(--anime-black); padding: 12px 22px; transform: rotate(-8deg); border-radius: 44% 47% 41% 35%; text-align: center; pointer-events: none; }
 .yani-sticker > span { font-size: 29px; line-height: 1.2; font-weight: 800; letter-spacing: -2px; display: block; }
 .yani-sticker > small { font-size: 9px; display: block; margin-top: 4px; }
-.anime-art-controls { display: flex; align-items: center; gap: 7px; margin-top: 23px; padding-left: 8px; font-size: 10px; }
+.anime-art-controls { margin-top: 23px; padding-left: 8px; font-size: 10px; }
 .anime-art-controls button { border: 1px solid var(--line); background: transparent; padding: 7px 9px; font-size: 9px; border-radius: 3px; }
 .anime-art-controls button[aria-pressed=true] { background: var(--anime-black); color: #fff; border-color: var(--anime-black); }
 .anime-art-controls button:hover { border-color: var(--ink); }
 .anime-art-controls > a { margin-left: auto; font-size: 9px; display: flex; align-items: center; gap: 5px; color: var(--muted); }
 .anime-art-controls > a .icon { width: 12px; height: 12px; }
+.hero-gallery-nav { display: flex; align-items: center; gap: 6px; }
+.hero-gallery-pages { display: flex; justify-content: center; gap: 5px; flex: 1; }
+.hero-gallery-nav button { display: inline-flex; align-items: center; justify-content: center; width: 34px; min-height: 34px; padding: 0; border-color: var(--line); font-size: 10px; font-weight: 700; color: var(--ink); }
+.hero-gallery-nav .hero-gallery-arrow { border-color: var(--ink); flex-shrink: 0; }
+.hero-gallery-arrow .icon { width: 16px; height: 16px; }
+.arrow-back { transform: rotate(180deg); }
+.hero-gallery-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 10px; color: var(--muted); font-size: 9px; }
+.hero-gallery-meta > a { display: inline-flex; align-items: center; gap: 4px; flex-shrink: 0; }
+.hero-gallery-meta .icon { width: 11px; height: 11px; }
+.hero-gallery-nav button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 .intro-strip { border-block: 1px solid var(--ink); }
 .intro-strip i { color: var(--anime-yellow); }
 .intro-strip > div { font-family: var(--sans); font-style: normal; font-size: 16px; font-weight: 700; letter-spacing: -.5px; }
@@ -89,6 +99,12 @@ h2 { font-family: var(--sans); font-size: 34px; font-weight: 800; letter-spacing
 .filter-button.selected { background: var(--anime-yellow); border-color: var(--anime-black); color: var(--anime-black); }
 .paper-visual { border-color: #aaa992; border-radius: 3px; }
 .venue-label { border-color: var(--ink); color: var(--ink); background: #ffb40020; }
+.publication-venue { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 10px; padding: 4px 8px; border: 1px solid #a8955f; border-radius: 4px; background: #ffb40016; color: var(--ink); font-size: 10px; font-weight: 750; line-height: 1.4; letter-spacing: .3px; }
+.venue-dot { width: 5px; height: 5px; border-radius: 50%; background: #ba8200; flex-shrink: 0; }
+.venue-year { padding-left: 6px; border-left: 1px solid #a8955f70; font-size: 9px; font-weight: 500; }
+.venue-preprint { background: transparent; border-color: var(--line); color: var(--muted); }
+.venue-preprint .venue-dot { background: var(--muted); }
+.venue-preprint .venue-year { border-color: var(--line); }
 .timeline-item h3 { font-weight: 800; }
 .current-label { color: var(--ink); }
 .timeline-item:first-child .timeline-dot { background: var(--anime-yellow); }
@@ -203,11 +219,13 @@ html[lang=zh-CN] h2 { font-size: 32px; font-weight: 800; letter-spacing: -.8px; 
   .anime-panel-caption > span:last-child { font-size: 6px; }
   .anime-art-controls button { font-size: 8px; padding-inline: 8px; }
   .anime-art-controls > a { font-size: 8px; }
+  .hero-gallery-nav button { width: 30px; min-height: 32px; padding: 0; }
+  .hero-gallery-pages { gap: 4px; }
   .yani-companion { width: 250px; }
   .yani-expression { left: 0; }
 }
 @media(prefers-reduced-motion:reduce) {
-  .anime-scene, .anime-character { animation: none; }
+  .hero-slide { animation: none; }
   .yani-hero-art:hover .anime-scene-wrap { transform: rotate(1.5deg); }
   .yani-companion:hover .yani-expression { transform: none; }
 }

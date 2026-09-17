@@ -11,8 +11,9 @@ A bilingual academic homepage for Tianyi Shang, a Ph.D. student at Purdue Univer
 - English / 中文, with saved language preference.
 - Light / dark themes, responsive navigation and reduced-motion support.
 - Three illustrated research directions: FAKE / REAL comparison, a collaborating cat team, and choosing a route at a fork.
-- Five verified selected publications in a text-only list with titles, authors, bilingual summaries, topic filters and paper/code links.
-- Official Yani Neko balcony / character views and an interactive expression switch.
+- Five verified selected publications in a text-only list with compact conference/preprint badges, titles, authors, bilingual summaries, topic filters and paper/code links.
+- Five official Yani Neko cover images: click the image, use previous/next arrows, choose a numbered button or press the left/right keys to switch. No automatic rotation.
+- An interactive character expression switch in the footer.
 - Local font files and responsive WebP artwork; no backend or analytics.
 
 ## Local development
@@ -45,11 +46,13 @@ Only the production `dist/` artifact is published. `vite.config.js` uses the Pag
 | --- | --- |
 | `src/main.js` | Bilingual copy, biography, research cards and interactions |
 | `src/publications.js` | Verified publications, author order, links and BibTeX |
+| `src/hero-art.js` | Cover gallery images, bilingual descriptions and framing |
 | `src/style.css` | Base layout and responsive styles |
 | `src/yanineko.css` | Anime theme and illustrated research cards |
 | `public/images/yanineko/` | Official anime character and promotional artwork |
 | `public/images/research/` | Optimized generated research illustrations |
 | `design/research/` | Original generated research PNGs |
+| `design/hero/` | Original official episode-still JPEGs |
 | `SOURCES.md` | Primary sources for academic records |
 | `docs/anime-artwork.md` | Official artwork provenance and credits |
 | `docs/research-art-prompts.md` | ImageGen prompts for the three research illustrations |

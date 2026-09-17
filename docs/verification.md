@@ -32,6 +32,14 @@ Checked in the Codex Chromium in-app browser against the local site:
 - Navigation filtering still returns four papers, resetting returns five, and Chinese switching updates summaries and resource labels.
 - The updated production build and JavaScript syntax check pass.
 
+### Cover gallery and venue badges
+
+- Five distinct official Yani Neko images load and switch through numbered selectors, previous/next controls, clicking the image, and keyboard arrows. The gallery wraps in both directions and exposes exactly one active slide and selector.
+- Language switching preserves the selected image and translates its description. Slide animation respects reduced motion; there is no automatic rotation.
+- Layout checks at 320, 390, 768 and 1440 CSS pixels found no horizontal overflow. The initially crowded 320-pixel controls were corrected and rechecked to fit their container.
+- Publication rows keep their text-only layout and now show compact CVPR 2026, IROS 2025 or arXiv preprint 2026 badges. Venue full names are available through accessible labels and tooltips. Preprint badges translate in Chinese.
+- The gallery and dark-theme badges were visually inspected; no browser console errors were captured. A separate source review found no actionable regression.
+
 ## Independent review
 
 The actual-anime revision was additionally checked at all five widths above with no horizontal overflow or broken images. Both official hero modes alternate visibility correctly; clicking the character changes the expression sprite. The sources dialog and footer identify the official artwork and correct rights holders. A separate read-only review found no remaining actionable issue in the character integration.
