@@ -108,10 +108,10 @@ function render() {
         <div class="research-grid">${research.map(r=>`<a href="#publications" class="research-card comic-card ${r.color}" data-research="${r.id}"><div class="card-top"><span>${r.no}</span><span class="round-arrow">${icon('arrow')}</span></div>${researchComic(r.id)}<h3>${t(r.title,r.zh)}</h3><p class="card-tagline">${t(...r.label)}</p><p class="card-description">${t(...r.text)}</p><span class="card-link">${t('Explore this direction','探索这个方向')}${icon('right')}</span></a>`).join('')}</div>
       </section>
       <section id="publications" class="publications-section"><div class="container section">
-        <div class="section-heading"><div><div class="eyebrow section-number">02 / ${t('SELECTED WORK','研究成果')}</div><h2>${t('Ideas, put into words','把想法写成论文')}<span class="handwritten heading-note">${t('and into the world.','也带进世界。')}</span></h2></div>${external(SCHOLAR,t('All publications','全部论文'),'text-link')}</div>
-        <div class="publication-toolbar"><div class="filter-list" role="group" aria-label="${t('Filter publications','筛选论文')}">${[['all','All work','全部'],['aigc','AIGC detection','AIGC 检测'],['navigation','Navigation','导航'],['vision','Vision','视觉'],['agentic','Agentic AI','智能体 AI']].map(([id,en,zh])=>`<button class="filter-button ${filter===id?'selected':''}" data-filter="${id}" aria-pressed="${filter===id}">${t(en,zh)}</button>`).join('')}</div><span class="results-count" aria-live="polite"></span></div>
+        <div class="section-heading"><div><div class="eyebrow section-number">02 / ${t('PUBLICATIONS','研究成果')}</div><h2>${t('Ideas, put into words','把想法写成论文')}<span class="handwritten heading-note">${t('and into the world.','也带进世界。')}</span></h2></div>${external(SCHOLAR,t('Google Scholar','Google Scholar'),'text-link')}</div>
+        <div class="publication-toolbar"><div class="filter-list" role="group" aria-label="${t('Filter publications','筛选论文')}">${[['all','All work','全部'],['aigc','AIGC detection','AIGC 检测'],['navigation','Navigation','导航'],['vision','Vision','视觉'],['agentic','Agentic AI','智能体 AI'],['other','Other research','其他研究']].map(([id,en,zh])=>`<button class="filter-button ${filter===id?'selected':''}" data-filter="${id}" aria-pressed="${filter===id}">${t(en,zh)}</button>`).join('')}</div><span class="results-count" aria-live="polite"></span></div>
         <div id="publication-list" class="publication-list"></div>
-        <div class="publication-note">${icon('book')}<span>${t('A selection of my work. For the full list, visit','部分研究成果，完整列表请见')} ${external(SCHOLAR,'Google Scholar','inline-link')}.</span></div>
+        <div class="publication-note">${icon('book')}<span>${t('Conference papers, journal articles and preprints. More on','会议论文、期刊论文与预印本。更多信息请见')} ${external(SCHOLAR,'Google Scholar','inline-link')}.</span></div>
       </div></section>
       <section id="journey" class="section container journey-section">
         <div class="journey-intro"><div class="eyebrow section-number">03 / ${t('THE JOURNEY','学术经历')}</div><h2>${t('Places & people<br>that shape my work.','一路同行，<br>一路成长。')}</h2><p>${t('Research is a journey best taken together. I’m grateful for the people who help me ask better questions.','研究是一段与人同行的旅程。感谢每一位帮助我提出更好问题的老师与伙伴。')}</p><div class="journey-doodle" aria-hidden="true"><span>Fuzhou</span><svg viewBox="0 0 200 60"><path d="M2 40c50-65 76 40 110-2S166 5 195 19m-10-14 11 15-20 3"/></svg><span>Purdue</span><i>✧</i></div></div>
@@ -139,7 +139,7 @@ function renderPublications() {
         ${p.summary?`<p class="paper-summary">${esc(p.summary[lang]||p.summary.en)}</p>`:''}
         <div class="paper-links">
           ${external(p.paperUrl,`${icon('book')}${t('Paper','论文')}`,'paper-link')}
-          ${p.codeUrl?external(p.codeUrl,`${icon('code')}${t('Code','代码')}`,'paper-link'):''}
+          ${p.codeUrl?external(p.codeUrl,`${icon('code')}${p.codeLabel?t(...p.codeLabel):t('Code','代码')}`,'paper-link'):''}
         </div>
       </div>
     </article>`).join('') : `<div class="empty-publications">${cat()}<h3>${t('A new direction, an open notebook.','新的方向，新的探索。')}</h3><p>${t(interest + ' is one of my current research interests. Explore my other selected papers or visit Google Scholar for the full publication list.', interest + '是我目前的研究兴趣之一。欢迎浏览其他精选论文，或前往 Google Scholar 查看完整列表。')}</p><button class="button button-secondary" data-reset>${t('View all selected work','查看全部精选论文')}${icon('right')}</button></div>`;
@@ -159,7 +159,7 @@ function publicationVenue(p) {
     IROS: 'IEEE/RSJ International Conference on Intelligent Robots and Systems',
   };
   const label = preprint ? t('arXiv preprint', 'arXiv 预印本') : p.venue;
-  const fullName = preprint ? t('arXiv preprint', 'arXiv 预印本') : (venueNames[p.venue] || p.venue);
+  const fullName = preprint ? t('arXiv preprint', 'arXiv 预印本') : (p.venueFullName || venueNames[p.venue] || p.venue);
   return `<span class="publication-venue ${preprint?'venue-preprint':'venue-published'}" title="${esc(fullName)}" aria-label="${esc(`${fullName}, ${p.year}`)}"><span class="venue-dot" aria-hidden="true"></span>${esc(label)} <span class="venue-year">${esc(p.year)}</span></span>`;
 }
 

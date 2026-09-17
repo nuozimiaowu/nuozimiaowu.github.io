@@ -11,7 +11,7 @@ A bilingual academic homepage for Tianyi Shang, a Ph.D. student at Purdue Univer
 - English / 中文, with saved language preference.
 - Light / dark themes, responsive navigation and reduced-motion support.
 - Three illustrated research directions: FAKE / REAL comparison, a collaborating cat team, and choosing a route at a fork.
-- Five verified selected publications in a text-only list with compact conference/preprint badges, titles, authors, bilingual summaries, topic filters and paper/code links.
+- Sixteen verified publications reconciled from 19 Google Scholar records, with compact conference/journal/preprint badges, titles, authors, bilingual summaries, topic filters and paper/code/resource links.
 - Five official Yani Neko cover images: click the image, use previous/next arrows, choose a numbered button or press the left/right keys to switch. No automatic rotation.
 - An interactive character expression switch in the footer.
 - Local font files and responsive WebP artwork; no backend or analytics.

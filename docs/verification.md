@@ -12,8 +12,7 @@ Checked in the Codex Chromium in-app browser against the local site:
 
 - At widths 320, 390, 768, 1024, and 1440 CSS pixels, the document had no horizontal overflow.
 - Official Yani Neko WebP images load locally. The active hero uses the actual anime visual and an alternate official character illustration.
-- Publication filters: All = 5; Navigation = 4; AIGC = current-research empty state with the correct topic.
-- Reset from an empty state restores all 5 publications.
+- Publication filters after the Scholar expansion: All = 16; Navigation = 11; Vision = 4; Other research = 1. AIGC has the current-research empty state with the correct topic.
 - The source dialog opens and closes.
 - English/Chinese switching updates the document language, navigation, body, labels, and summaries.
 - Light/dark switching updates page theme and accessible action labels.
@@ -45,6 +44,15 @@ Checked in the Codex Chromium in-app browser against the local site:
 The actual-anime revision was additionally checked at all five widths above with no horizontal overflow or broken images. Both official hero modes alternate visibility correctly; clicking the character changes the expression sprite. The sources dialog and footer identify the official artwork and correct rights holders. A separate read-only review found no remaining actionable issue in the character integration.
 
 A separate source review checked content integrity, accessibility and UI behavior. Identified issues were corrected: muted text contrast, mobile menu visibility after desktop resize, the menu's accessible label after close, topic-specific empty states, and the citation entry type for preprints.
+
+### Google Scholar expansion
+
+- The live Scholar profile's 19 records were reconciled into 16 independent works: nine journal articles, three conference papers, and four preprints. Eleven works were added to the previous five.
+- A separate read-only review compared all eleven additions against the publisher/arXiv evidence, confirming exact titles, ordered authors, journal issue years and full venue names. All nineteen Scholar records map to valid website entries; duplicate versions are merged.
+- Seven Code links and one survey Resources link are displayed. FourierPlace's empty repository is omitted.
+- All sixteen entries contain Chinese and English summaries. Browser checks confirmed 16 total entries, 11 Navigation, 4 Vision and 1 Other research entry, and no publication thumbnails.
+- At 320, 390 and 1440 CSS pixels, the expanded list and filter controls have no horizontal overflow. Chinese switching updates every summary and the Resources label. No console errors were captured.
+- Production build and JavaScript syntax validation passed.
 
 ## Public deployment
 
