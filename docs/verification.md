@@ -33,6 +33,16 @@ The actual-anime revision was additionally checked at all five widths above with
 
 A separate source review checked content integrity, accessibility and UI behavior. Identified issues were corrected: muted text contrast, mobile menu visibility after desktop resize, the menu's accessible label after close, topic-specific empty states, and the citation entry type for preprints.
 
+## Public deployment
+
+Verified on 2026-09-17:
+
+- Public site: https://nuozimiaowu.github.io/.
+- GitHub Pages source is GitHub Actions. [Deployment run 35181036864](https://github.com/nuozimiaowu/nuozimiaowu.github.io/actions/runs/35181036864) completed successfully for source commit `1e8a67b19022f14005bec5e9478cad00d1dea198`.
+- Unauthenticated HTTPS requests returned success for all 22 checked resources: the homepage, production JavaScript/CSS, eight font resources, and eleven image files. All eleven remote image SHA-256 hashes match the local assets.
+- The public page rendered in Chromium with all three research illustrations loaded, the correct FAKE / REAL labels, no horizontal overflow at the normal mobile viewport, and no captured console warnings or errors.
+- Mobile navigation successfully opens the research section on the public site. Future pushes to `main` trigger the deployment workflow (except commits explicitly marked to skip CI).
+
 ## Limits
 
 - External academic pages may rate-limit requests. Links and records were checked from the primary sources described in `SOURCES.md`; ongoing availability is controlled by those sites.
