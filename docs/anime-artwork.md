@@ -16,13 +16,14 @@ Copyright: ©にゃんにゃんファクトリー・講談社／ヤニねこ製�
 | `public/images/yanineko/hero-key-visual.webp` | [Main key visual](https://yanineko-anime.com/wp/wp-content/themes/yanineko-theme/images/kv01.webp) | Retired from the gallery |
 | `public/images/yanineko/hero-closeup.webp` | [Episode 1 still 01](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_01-01.jpg) | Retired from the gallery |
 | `public/images/yanineko/hero-workday.webp` | [Episode 1 still 02](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_01-02.jpg) | Retired from the gallery |
-| `public/images/yanineko/hero-everyday-smile.webp` | [Episode 3 still 03](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_03-03.jpg) | Everyday expression on an apartment walkway |
-| `public/images/yanineko/hero-outdoor-cheer.webp` | [Episode 3 still 01](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_03-01.jpg) | Cheerful moment outdoors |
-| `public/images/yanineko/hero-friends-kyoto.webp` | [Episode 11 still 02](https://yanineko-anime.com/wp/wp-content/uploads/2026/09/yanineko_11-02.jpg) | A relaxed outing with friends |
+| `public/images/yanineko/hero-everyday-smile.webp` | [Episode 3 still 03](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_03-03.jpg) | Previous gallery selection; retained as a candidate |
+| `public/images/yanineko/hero-outdoor-cheer.webp` | [Episode 3 still 01](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_03-01.jpg) | Previous gallery selection; retained as a candidate |
+| `public/images/yanineko/hero-friends-kyoto.webp` | [Episode 11 still 02](https://yanineko-anime.com/wp/wp-content/uploads/2026/09/yanineko_11-02.jpg) | Previous gallery selection; retained as a candidate |
+| `public/images/yanineko/hero-balcony-chat.webp` | [Episode 2 still 02](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_02-02.jpg) | Second active cover, explicitly selected as option 09 |
 
-Official WebP files are copied unchanged from URLs observed in the official page. Episode-still JPEG originals are retained in `design/hero/`, with the active everyday selections under `design/hero/calm/`; `scripts/optimize-hero-art.mjs` resizes the active stills to 1280 pixels wide and encodes WebP copies for the site. Layout and framing are performed with CSS. All four active hero images are official artwork, not generated recreations.
+Official WebP files are copied unchanged from URLs observed in the official page. Episode-still JPEG originals are retained in `design/hero/`, with the earlier everyday selections under `design/hero/calm/`; `scripts/optimize-hero-art.mjs` creates their 1280-pixel-wide WebP copies. The selected balcony still uses the inspected 1600 × 900 WebP from option 09, copied unchanged to the hero asset directory. Layout and framing are performed with CSS. Both active hero images are official artwork, not generated recreations.
 
-On 2026-09-17 the user asked for a relaxed, natural impression without making smoking or rebellion the visual focus, and explicitly approved the clean full-body character illustration as the reference. It is now the default. The three accompanying stills were inspected at full size and contain no visible cigarettes or smoke. The former balcony, group key visual, smoking closeup, and workday image are no longer referenced by the gallery. No image content was painted over or generated to remove smoking.
+On 2026-09-17 the user initially asked for a relaxed, natural impression without making smoking or rebellion the visual focus, and explicitly approved the clean full-body character illustration as the reference. It remains the default. The initial three accompanying stills contained no visible cigarettes or smoke. The user later clarified that smoking is allowed and selected options 01 and 09 from the ten-image board. The active homepage gallery now contains exactly those two selections: the full-body character illustration and the balcony conversation. The other previous covers remain available as source assets but are not referenced by the active gallery. No image content was painted over or generated to remove smoking.
 
 The palette uses the official site's observed colors: old-paper white `#EFEEE2`, charcoal `#252525`, yellow `#FFB400`. Character green supports the research cards. The site is an unofficial personal academic homepage and includes attribution in its footer and source dialog. Interactive dialogue is original website copy, not anime quotations.
 
@@ -32,7 +33,7 @@ The earlier generic `research-cat` illustration is not used or included in the G
 
 ## Optional cover selection board
 
-Later on 2026-09-17, the user requested ten numbered cover choices and clarified that smoking is allowed among the optional candidates. The separate selection board at `public/art-options/index.html` includes the existing eight artwork choices and the following two additional official episode stills. The current four-slide homepage gallery remains unchanged until the user chooses; allowing smoking in the board does not change the current default cover.
+Later on 2026-09-17, the user requested ten numbered cover choices and clarified that smoking is allowed among the optional candidates. The separate selection board at `public/art-options/index.html` initially included the existing eight artwork choices and the following two additional official episode stills. The user then selected 01 and 09, which now form the two-slide homepage gallery; option 01 remains the default.
 
 | Selection file | Official source | Description |
 | --- | --- | --- |
@@ -40,3 +41,11 @@ Later on 2026-09-17, the user requested ten numbered cover choices and clarified
 | `public/art-options/images/10.webp` | [Episode 4 still 01](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_04-01.jpg) | Close-up of Yani Neko and a bespectacled friend; no visible cigarette or smoke |
 
 Both additional originals were inspected at their full 1920 × 1080 resolution. Their URLs were observed in the official site's episode section. These selection images are resized WebP copies of official stills, not generated or retouched artwork.
+
+## Second selection round
+
+The user confirmed **01 and 09** for the homepage, then requested twenty different additional choices, allowing Pixiv as a possible source. Pixiv navigation was blocked by the browser site-safety policy, so no Pixiv artwork was retrieved or attributed to that site. The twenty new options are numbered **11–30**, with the first ten retained in a collapsed section and the confirmed two shown at the top.
+
+The new choices include fifteen distinct official anime stills, the first three manga volume covers, and two publisher color illustrations. All were visually reviewed; smoking is allowed. Original cover text, signatures, and artwork credits are retained. Manga cover previews are the original small images offered by the anime site and are not enlarged during conversion. None of the twenty are AI-generated or repetitions of the first batch.
+
+`public/art-options/new-candidates.js` records each stable number, title, original image URL, source page, and served dimensions. `public/art-options/images/11.webp` through `30.webp` are optimized previews. The additional publisher source is [Young Magazine's official Yani Neko page](https://magazine.yanmaga.jp/c/yanineko/); manga artwork is ©にゃんにゃんファクトリー／講談社. The new balcony side profile comes from the [official voice actor interview](https://yanineko-anime.com/117/).

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
   <meta name="theme-color" content="#efeee2">
-  <title>10 张妮古喵喵 · 封面选图</title>
+  <title>20 张新候选 · 妮古喵喵封面选图</title>
   <link rel="icon" href="../images/yanineko/chara-icon01.webp">
   <style>
     :root{color-scheme:light;font-family:system-ui,-apple-system,"Microsoft YaHei",sans-serif;color:#252525;background:#efeee2;font-synthesis:none}
@@ -14,6 +14,7 @@
     main{max-width:1480px;margin:auto;padding:44px 32px 130px}.eyebrow{display:inline-block;background:#252525;color:#ffbd26;font-size:12px;font-weight:800;letter-spacing:.14em;padding:10px 14px}
     header{margin-bottom:30px}header>div{display:flex;align-items:center;justify-content:space-between;gap:16px}header a{font-size:14px}h1{font-size:clamp(28px,4vw,46px);line-height:1.2;margin:22px 0 12px;letter-spacing:-.04em}header p{color:#62665c;margin:0;line-height:1.8}
     .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}.card{background:#faf9f0;border:2px solid #252525;border-radius:12px;overflow:hidden;box-shadow:4px 5px 0 #25252515;transition:box-shadow .15s}.card:has(input:checked){box-shadow:5px 6px 0 #f9b619}
+    .confirmed{display:flex;align-items:center;gap:14px;margin:24px 0 32px;padding:16px;background:#e0e6d2;border:1px solid #66725a55;border-radius:10px}.confirmed p{margin:0;line-height:1.7;font-size:14px}.confirmed strong{display:block}.confirmed button{position:relative;padding:0;border:1px solid #66725a55;border-radius:6px;overflow:hidden;background:#f6f5eb;width:88px;height:70px;flex:none}.confirmed img{height:100%;width:100%;object-fit:contain}.confirmed span{position:absolute;bottom:0;left:0;background:#252525;color:white;font-size:11px;padding:2px 5px}section>h2{font-size:20px;margin:0 0 20px}.previous{margin-top:36px;border-top:1px dashed #737565;padding-top:20px}.previous summary{font-weight:700;cursor:pointer;margin-bottom:22px}.selection>div{min-width:0}.selection p{overflow-wrap:anywhere}
     .preview{display:block;position:relative;width:100%;padding:12px;border:0;border-bottom:1px solid #25252528;background:#e6e9d9;aspect-ratio:4/3}.preview img{display:block;width:100%;height:100%;object-fit:contain}.number{position:absolute;top:14px;left:14px;background:#252525;color:#fff;font-weight:800;border-radius:5px;padding:6px 10px;font-size:15px}.zoom{position:absolute;right:12px;bottom:12px;background:#faf9f0ed;border-radius:4px;padding:4px 8px;font-size:12px}
     .details{padding:16px;display:flex;align-items:center;justify-content:space-between;gap:12px}.details h2{font-size:16px;margin:0;font-weight:700}.choose{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:14px;white-space:nowrap;padding:6px 0}.choose input{accent-color:#252525;width:18px;height:18px;margin:0}
     footer{font-size:12px;color:#62665c;line-height:1.9;margin-top:32px}.selection{position:fixed;bottom:0;left:0;right:0;border-top:2px solid #252525;background:#faf9f0f7;z-index:2;padding:16px max(24px,calc((100vw - 1416px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px;backdrop-filter:blur(12px)}.selection p{margin:0;line-height:1.6;font-size:14px}.selection button,.dialog-controls button{border:1.5px solid #252525;border-radius:6px;background:#ffbd26;padding:10px 16px;font-weight:700;white-space:nowrap}.selection button:disabled{opacity:.4;cursor:default}#copy-status{font-size:12px;color:#526d50;min-height:18px;display:block}
@@ -26,12 +27,18 @@
   <main>
     <header>
       <div><span class="eyebrow">YANI NEKO / COVER PICKS</span><a href="../">返回学术主页 ↗</a></div>
-      <h1>10 张妮古喵喵，选你喜欢的。</h1>
-      <p>点击图片放大。可以多选，选好后把编号发给我。</p>
+      <h1>再挑 20 张，看看哪张合眼缘。</h1>
+      <p>这批都是新画面，沿用编号 11–30。点击放大，可以多选。</p>
     </header>
-    <div class="grid" id="gallery"></div>
+    <div class="confirmed" aria-label="已确认的首页图片">
+      <button type="button" data-open="01" aria-label="放大已选 01 日常全身立绘"><img src="../images/yanineko/chara-pic01.webp" alt="已选 01 日常全身立绘"><span>01</span></button>
+      <button type="button" data-open="09" aria-label="放大已选 09 阳台闲聊"><img src="./images/09.webp" alt="已选 09 阳台闲聊"><span>09</span></button>
+      <p><strong>01 + 09 已选入首页</strong>新的选择可以继续加进来。</p>
+    </div>
+    <section aria-labelledby="new-heading"><h2 id="new-heading">新的 20 张 · 11–30</h2><div class="grid" id="gallery"></div></section>
+    <details class="previous"><summary>回看上一批 · 01–10</summary><div class="grid" id="previous-gallery"></div></details>
     <noscript><p>请开启 JavaScript 查看选图页。</p></noscript>
-    <footer>图片来自 <a href="https://yanineko-anime.com/" target="_blank" rel="noopener noreferrer">TV 动画《ヤニねこ》官方网站</a>，每张大图下方可查看原图。<br>©にゃんにゃんファクトリー・講談社／ヤニねこ製作委員会</footer>
+    <footer>图片来自 <a href="https://yanineko-anime.com/" target="_blank" rel="noopener noreferrer">TV 动画《ヤニねこ》官方网站</a> 和 <a href="https://magazine.yanmaga.jp/c/yanineko/" target="_blank" rel="noopener noreferrer">讲谈社 Young Magazine</a>，每张大图下方可查看原图。<br>动画：©にゃんにゃんファクトリー・講談社／ヤニねこ製作委員会　原作：©にゃんにゃんファクトリー／講談社</footer>
   </main>
   <aside class="selection" aria-label="已选图片">
     <div><p id="selection-text" aria-live="polite">还没有选图</p><span id="copy-status" role="status">选择会保存在当前浏览器中</span></div>
@@ -42,7 +49,8 @@
     <img id="large-image" alt="">
     <div class="dialog-footer"><label class="choose"><input id="dialog-choice" type="checkbox">选这张</label><a id="source-link" target="_blank" rel="noopener noreferrer">官方原图 ↗</a></div>
   </dialog>
-  <script>
+  <script type="module">
+    import { newCandidates } from './new-candidates.js';
     const official = 'https://yanineko-anime.com/wp/wp-content/';
     const pictures = [
       ['01','日常全身立绘','chara-pic01.webp','themes/yanineko-theme/images/chara-pic01.webp'],
@@ -55,13 +63,15 @@
       ['08','打工中的小表情','hero-workday.webp','uploads/2026/07/yanineko_01-02.jpg'],
       ['09','阳台闲聊','09.webp','uploads/2026/07/yanineko_02-02.jpg'],
       ['10','好奇的双人近景','10.webp','uploads/2026/07/yanineko_04-01.jpg'],
-    ].map(([id,title,file,source]) => ({id,title,src:Number(id)>8?'./images/'+file:'../images/yanineko/'+file,source:official+source}));
-    const key='tianyi-cover-picks-v1';
-    let selected=new Set();
-    try { const saved=JSON.parse(localStorage.getItem(key)||'[]'); if(Array.isArray(saved)) selected=new Set(saved.filter(id=>pictures.some(p=>p.id===id))); } catch {}
+    ].map(([id,title,file,source]) => ({id,title,src:Number(id)>8?'./images/'+file:'../images/yanineko/'+file,source:official+source})).concat(newCandidates);
+    const key='tianyi-cover-picks-v2';
+    let selected=new Set(['01','09']);
+    try { const saved=JSON.parse(localStorage.getItem(key)||'null'); if(Array.isArray(saved)) selected=new Set(saved.filter(id=>pictures.some(p=>p.id===id))); } catch {}
     const gallery=document.querySelector('#gallery'),dialog=document.querySelector('#lightbox'),copy=document.querySelector('#copy'),status=document.querySelector('#copy-status');
     let active=null;
-    gallery.innerHTML=pictures.map(p=>`<article class="card"><button class="preview" type="button" data-open="${p.id}" aria-label="放大 ${p.id} ${p.title}"><img src="${p.src}" alt="${p.title}" decoding="async"><span class="number">${p.id}</span><span class="zoom">点击放大 ↗</span></button><div class="details"><h2>${p.title}</h2><label class="choose"><input type="checkbox" data-pick="${p.id}" aria-label="选择 ${p.id} ${p.title}">选这张</label></div></article>`).join('');
+    const card=p=>`<article class="card"><button class="preview" type="button" data-open="${p.id}" aria-label="放大 ${p.id} ${p.title}"><img src="${p.src}" alt="${p.title}" decoding="async"><span class="number">${p.id}</span><span class="zoom">点击放大 ↗</span></button><div class="details"><h2>${p.title}</h2><label class="choose"><input type="checkbox" data-pick="${p.id}" aria-label="选择 ${p.id} ${p.title}">选这张</label></div></article>`;
+    gallery.innerHTML=pictures.filter(p=>Number(p.id)>10).map(card).join('');
+    document.querySelector('#previous-gallery').innerHTML=pictures.filter(p=>Number(p.id)<=10).map(card).join('');
     function render(){
       const ids=[...selected].sort();
       document.querySelector('#selection-text').textContent=ids.length?'已选 '+ids.length+' 张：'+ids.join('、'):'还没有选图';
@@ -71,8 +81,8 @@
       try{localStorage.setItem(key,JSON.stringify(ids));}catch{}
     }
     function choose(id,checked){checked?selected.add(id):selected.delete(id);status.textContent='选好后，复制编号发给我即可';render();}
-    gallery.addEventListener('change',event=>{if(event.target.matches('[data-pick]'))choose(event.target.dataset.pick,event.target.checked);});
-    gallery.addEventListener('click',event=>{
+    document.querySelector('main').addEventListener('change',event=>{if(event.target.matches('[data-pick]'))choose(event.target.dataset.pick,event.target.checked);});
+    document.querySelector('main').addEventListener('click',event=>{
       const button=event.target.closest('[data-open]');if(!button)return;
       active=pictures.find(p=>p.id===button.dataset.open);
       document.querySelector('#dialog-title').textContent=active.id+' · '+active.title;
