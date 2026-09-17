@@ -1,0 +1,258 @@
+/* The actual TV anime ヤニねこ: official cream / charcoal / yellow palette. */
+:root {
+  --paper: #efeee2;
+  --surface: #faf9f2;
+  --ink: #252525;
+  --muted: #626459;
+  --sage: #636e58;
+  --sage-soft: #e2e5d4;
+  --pink: #eee3d5;
+  --yellow: #f5e6ad;
+  --line: #d1d0c0;
+  --header: rgba(239, 238, 226, .96);
+  --anime-yellow: #ffb400;
+  --anime-black: #252525;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+body {
+  background-image: radial-gradient(#8b8a741b .65px, transparent .65px);
+  background-size: 7px 7px;
+}
+
+.site-header { border-bottom: 1px solid var(--ink); }
+.scroll-progress { height: 3px; background: var(--anime-yellow); }
+.cat-mark { width: 40px; height: 40px; object-fit: contain; border-radius: 50%; }
+.brand .cat-mark { width: 43px; height: 43px; border: 1.5px solid var(--ink); background: var(--sage-soft); }
+.brand { letter-spacing: -.8px; }
+.brand-sub { letter-spacing: .5px; }
+.desktop-nav a.active::after { background: var(--anime-yellow); width: 17px; height: 3px; border-radius: 0; left: calc(50% - 8px); }
+.icon-button { border-color: var(--ink); }
+.icon-button:hover { background: var(--anime-yellow); color: var(--anime-black); }
+
+.hero { padding-block: 59px 71px; min-height: 726px; gap: 65px; }
+.hero-copy > .eyebrow { letter-spacing: 1.3px; }
+.status-dot { background: var(--anime-yellow); box-shadow: 0 0 0 4px #ffb40026; }
+.hero h1 { font-family: var(--sans); font-weight: 800; font-size: clamp(49px, 4.8vw, 68px); line-height: 1.13; letter-spacing: -3.7px; margin-top: 26px; }
+.hero h1 em { color: var(--ink); font-weight: 800; font-style: normal; margin-left: 4px; background: linear-gradient(transparent 64%, var(--anime-yellow) 64%, var(--anime-yellow) 94%, transparent 94%); }
+.name-spark { fill: var(--anime-yellow); left: 57%; top: 9px; }
+.hero-subtitle { font-family: var(--serif); font-size: 18px; font-style: italic; font-weight: 400; margin-top: 25px; }
+.hero-description { font-size: 14px; line-height: 1.9; }
+.button { border-radius: 3px; border: 1.5px solid var(--ink); }
+.button-primary { background: var(--anime-yellow); color: var(--anime-black); box-shadow: 3px 3px 0 var(--anime-black); }
+.button-primary:hover { background: #ffc542; box-shadow: 5px 5px 0 var(--anime-black); transform: translate(-1px, -1px); }
+.button-secondary { background: var(--surface); }
+.button-secondary:hover { box-shadow: 3px 3px 0 var(--ink); }
+
+.yani-hero-art { margin: 0 4px 0 0; }
+.anime-scene-wrap { border: 2px solid var(--anime-black); border-radius: 5px; box-shadow: 9px 9px 0 var(--anime-yellow); transform: rotate(1.5deg); overflow: hidden; transition: transform .4s ease; background: var(--anime-yellow); }
+.yani-hero-art:hover .anime-scene-wrap { transform: rotate(.4deg); }
+.anime-stage { height: 455px; position: relative; overflow: hidden; background-color: #eeeedd; background-image: radial-gradient(#9da18550 1px, transparent 1px); background-size: 9px 9px; }
+.anime-stage [hidden] { display: none; }
+.anime-scene { width: 100%; height: 100%; object-fit: cover; object-position: 50% 34%; animation: scene-in .4s ease both; }
+.anime-character { width: 100%; height: 100%; object-fit: contain; animation: scene-in .4s ease both; }
+.anime-stage > .anime-logo { position: absolute; top: 19px; left: 19px; width: 163px; height: auto; z-index: 1; filter: drop-shadow(1px 2px 0 #25252566); }
+.scene-index { position: absolute; bottom: 14px; left: 16px; background: var(--anime-black); color: #fff; padding: 7px 9px; font-size: 8px; font-weight: 700; letter-spacing: 1.2px; }
+.anime-panel-caption { display: flex; align-items: center; justify-content: space-between; padding: 13px 16px; color: #efeee2; background: var(--anime-black); gap: 10px; }
+.anime-panel-caption > span:first-child { font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+.anime-panel-caption b { font-size: 10px; color: var(--anime-yellow); margin-left: 7px; font-weight: 400; }
+.anime-panel-caption > span:last-child { font-size: 8px; letter-spacing: 1.4px; }
+.yani-sticker { position: absolute; left: -30px; bottom: 77px; z-index: 2; background: var(--surface); border: 2px solid var(--anime-black); box-shadow: 3px 3px 0 var(--anime-black); padding: 12px 22px; transform: rotate(-8deg); border-radius: 44% 47% 41% 35%; text-align: center; }
+.yani-sticker > span { font-size: 29px; line-height: 1.2; font-weight: 800; letter-spacing: -2px; display: block; }
+.yani-sticker > small { font-size: 9px; display: block; margin-top: 4px; }
+.anime-art-controls { display: flex; align-items: center; gap: 7px; margin-top: 23px; padding-left: 8px; font-size: 10px; }
+.anime-art-controls button { border: 1px solid var(--line); background: transparent; padding: 7px 9px; font-size: 9px; border-radius: 3px; }
+.anime-art-controls button[aria-pressed=true] { background: var(--anime-black); color: #fff; border-color: var(--anime-black); }
+.anime-art-controls button:hover { border-color: var(--ink); }
+.anime-art-controls > a { margin-left: auto; font-size: 9px; display: flex; align-items: center; gap: 5px; color: var(--muted); }
+.anime-art-controls > a .icon { width: 12px; height: 12px; }
+.intro-strip { border-block: 1px solid var(--ink); }
+.intro-strip i { color: var(--anime-yellow); }
+.intro-strip > div { font-family: var(--sans); font-style: normal; font-size: 16px; font-weight: 700; letter-spacing: -.5px; }
+
+h2 { font-family: var(--sans); font-size: 34px; font-weight: 800; letter-spacing: -1.5px; }
+.section-number { display: inline-block; background: var(--anime-black); color: var(--anime-yellow); padding: 4px 8px; font-size: 8px; letter-spacing: 1.5px; }
+.small-star { color: var(--anime-yellow); font-size: 29px; vertical-align: 2px; }
+.research-card { border: 1.5px solid var(--ink); border-radius: 4px; box-shadow: 3px 3px 0 #2525251c; }
+.research-card:hover { box-shadow: 6px 6px 0 var(--ink); transform: translate(-2px, -4px); }
+.research-card.sage { background: var(--sage-soft); }
+.research-card.pink { background: var(--pink); }
+.research-card.yellow { background: var(--yellow); }
+.card-top > span:first-child { color: var(--ink); font-weight: 800; font-size: 13px; }
+.round-arrow { border-color: var(--ink); }
+.research-card h3 { font-weight: 800; }
+.card-link { border-top: 1px dashed #25252538; }
+.heading-note { color: var(--muted); font-size: 15px; letter-spacing: 0; font-weight: 400; }
+.publications-section { background: #e8e7da; border-block-color: var(--ink); }
+.filter-button { border-radius: 3px; }
+.filter-button.selected { background: var(--anime-yellow); border-color: var(--anime-black); color: var(--anime-black); }
+.paper-visual { border-color: #aaa992; border-radius: 3px; }
+.venue-label { border-color: var(--ink); color: var(--ink); background: #ffb40020; }
+.timeline-item h3 { font-weight: 800; }
+.current-label { color: var(--ink); }
+.timeline-item:first-child .timeline-dot { background: var(--anime-yellow); }
+.contact-section { background: var(--anime-yellow); border: 2px solid var(--anime-black); border-radius: 4px; box-shadow: 6px 6px 0 var(--anime-black); padding-block: 44px; }
+.contact-section::after { border-color: #25252525; }
+.contact-copy > .eyebrow, .contact-copy > p, .contact-copy h2, .contact-links > .text-link { color: var(--anime-black); }
+.contact-copy h2 { font-size: 43px; font-weight: 800; }
+.contact-section .button-primary { color: #fff; background: var(--anime-black); box-shadow: none; }
+.yani-companion { height: 245px; width: 280px; margin-right: 0; }
+.yani-expression { position: absolute; width: 245px; height: 183px; left: 16px; bottom: 25px; background-image: url('/images/yanineko/chara-face01.webp'); background-size: 490px 183px; background-position: 0 0; background-repeat: no-repeat; transition: transform .25s; }
+.yani-expression.alternate { background-position: -245px 0; }
+.yani-companion:hover .yani-expression { transform: rotate(-4deg); }
+.cat-speech { color: var(--anime-black); background: #faf9f2; border: 1.5px solid var(--anime-black); border-radius: 50% 40% 43% 48%; top: -14px; padding: 14px 18px; font-family: inherit; font-size: 12px; box-shadow: 2px 2px 0 var(--anime-black); }
+.cat-speech::after { background: #faf9f2; border-color: var(--anime-black); }
+.cat-hint { color: #393626; }
+.purr .yani-expression { animation: purr .55s ease; }
+.footer-brand > .cat-mark { width: 30px; height: 30px; }
+.anime-copyright { font-size: 8px !important; line-height: 1.6; }
+
+html[data-theme=dark] { --paper: #24251f; --surface: #31332b; --ink: #efeee2; --muted: #b3b6a6; --sage: #b9c3a3; --sage-soft: #363c2f; --pink: #40382e; --yellow: #453e29; --line: #4d4e40; --header: rgba(36, 37, 31, .96); background: var(--paper); color: var(--ink); }
+[data-theme=dark] body { background-image: radial-gradient(#cecaaf12 .65px, transparent .65px); }
+[data-theme=dark] .button-primary { background: var(--anime-yellow); color: var(--anime-black); border-color: var(--anime-yellow); }
+[data-theme=dark] .button-primary:hover { background: #ffd06c; }
+[data-theme=dark] .hero h1 em { color: var(--paper); background: var(--anime-yellow); padding-inline: 5px; }
+[data-theme=dark] .research-card { border-color: #80816e; }
+[data-theme=dark] .publications-section { background: #2b2d25; }
+[data-theme=dark] .contact-section { background: var(--anime-yellow); border-color: var(--anime-black); }
+[data-theme=dark] .contact-section .button-primary { background: var(--anime-black); color: #efeee2; border-color: var(--anime-black); }
+[data-theme=dark] .cat-speech { background: #faf9f2; border-color: var(--anime-black); }
+[data-theme=dark] .cat-speech::after { background: #faf9f2; border-color: var(--anime-black); }
+[data-theme=dark] .anime-art-controls button[aria-pressed=true] { color: var(--anime-black); background: var(--anime-yellow); }
+[data-theme=dark] .section-number { background: #10110e; }
+
+@keyframes scene-in { from { opacity: .5; transform: scale(1.025); } to { opacity: 1; transform: scale(1); } }
+
+html[lang=zh-CN] .hero h1 { font-size: clamp(44px, 4.8vw, 66px); }
+html[lang=zh-CN] .hero-subtitle { font-family: inherit; font-style: normal; font-size: 16px; }
+html[lang=zh-CN] h2 { font-size: 32px; font-weight: 800; letter-spacing: -.8px; }
+
+@media(max-width:1150px) {
+  .hero { gap: 42px; min-height: 690px; }
+  .hero h1 { font-size: 56px; letter-spacing: -3px; }
+  .hero-subtitle { font-size: 16px; }
+  .hero-description { font-size: 13px; }
+  .anime-stage { height: 425px; }
+  .anime-stage > .anime-logo { width: 135px; }
+  .yani-sticker { left: -19px; padding: 12px 18px; }
+  h2 { font-size: 30px; }
+  .yani-companion { width: 260px; }
+}
+@media(max-width:900px) {
+  .hero { gap: 32px; min-height: 622px; padding-block: 48px 55px; }
+  .hero h1 { font-size: 47px; letter-spacing: -2.9px; }
+  .hero-subtitle { font-size: 15px; }
+  .hero-description { font-size: 12px; }
+  .anime-stage { height: 370px; }
+  .anime-stage > .anime-logo { width: 117px; left: 12px; top: 14px; }
+  .anime-panel-caption { padding: 12px 11px; }
+  .anime-panel-caption > span:first-child { font-size: 12px; }
+  .anime-panel-caption > span:last-child { font-size: 6px; }
+  .anime-panel-caption b { font-size: 8px; }
+  .yani-sticker { left: -17px; bottom: 78px; padding: 11px 15px; }
+  .yani-sticker > span { font-size: 24px; }
+  .yani-sticker > small { font-size: 8px; }
+  .anime-art-controls { gap: 5px; }
+  .anime-art-controls button { font-size: 8px; padding: 7px; }
+  .anime-art-controls > a { font-size: 8px; }
+  .yani-companion { width: 235px; margin-left: 0; }
+  h2 { font-size: 27px; }
+  .contact-copy h2 { font-size: 36px; }
+  html[lang=zh-CN] .hero h1 { font-size: 45px; }
+}
+@media(max-width:700px) {
+  .brand .cat-mark { width: 35px; height: 35px; }
+  .hero { padding-block: 42px 38px; gap: 35px; min-height: 0; }
+  .hero h1 { font-size: clamp(44px, 9.6vw, 62px); letter-spacing: -2.8px; margin-top: 22px; }
+  .hero-subtitle { font-size: 16px; margin-top: 21px; }
+  .hero-description { font-size: 13px; }
+  .name-spark { left: 60%; }
+  .yani-hero-art { width: calc(100% - 10px); margin: 0 5px; max-width: 490px; }
+  .anime-stage { height: 410px; }
+  .anime-scene-wrap { box-shadow: 6px 6px 0 var(--anime-yellow); transform: rotate(1deg); }
+  .anime-stage > .anime-logo { width: 143px; }
+  .anime-panel-caption { padding: 13px 13px; }
+  .anime-panel-caption > span:first-child { font-size: 13px; }
+  .anime-panel-caption > span:last-child { font-size: 7px; }
+  .yani-sticker { left: -11px; bottom: 91px; padding: 11px 19px; }
+  .anime-art-controls { padding-left: 0; margin-top: 20px; gap: 7px; }
+  .anime-art-controls button { padding: 8px 11px; font-size: 9px; }
+  .anime-art-controls > a { font-size: 9px; }
+  .intro-strip { margin-top: 2px; }
+  .intro-strip > div { font-size: 17px; }
+  h2 { font-size: 29px; }
+  .section-heading > p { font-size: 11px; }
+  .research-card { padding: 22px 24px; }
+  .section-number { font-size: 8px; }
+  .heading-note { font-size: 14px; }
+  .contact-section { padding: 31px 26px 18px; gap: 27px; }
+  .contact-copy h2 { font-size: 38px; }
+  .yani-companion { width: 280px; height: 247px; transform: none; margin-top: 14px; margin-bottom: 0; align-self: center; }
+  .yani-expression { width: 245px; height: 183px; left: 17px; bottom: 23px; }
+  .cat-speech { top: -14px; }
+  html[lang=zh-CN] .hero h1 { font-size: clamp(43px, 9.8vw, 62px); letter-spacing: -2.4px; }
+  html[lang=zh-CN] .hero-subtitle { font-size: 14px; }
+  html[lang=zh-CN] h2 { font-size: 28px; }
+}
+@media(max-width:360px) {
+  .hero h1, html[lang=zh-CN] .hero h1 { font-size: 43px; letter-spacing: -2.8px; }
+  .hero-subtitle { font-size: 14px; }
+  .anime-stage { height: 355px; }
+  .anime-panel-caption > span:first-child { font-size: 11px; }
+  .anime-panel-caption > span:last-child { font-size: 6px; }
+  .anime-art-controls button { font-size: 8px; padding-inline: 8px; }
+  .anime-art-controls > a { font-size: 8px; }
+  .yani-companion { width: 250px; }
+  .yani-expression { left: 0; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .anime-scene, .anime-character { animation: none; }
+  .yani-hero-art:hover .anime-scene-wrap { transform: rotate(1.5deg); }
+  .yani-companion:hover .yani-expression { transform: none; }
+}
+
+/* Research is explained through three character comics, not generic icons. */
+.comic-card { padding: 22px 22px 20px; }
+.comic-card .research-comic {
+  position: relative;
+  inset: auto;
+  display: block;
+  width: calc(100% + 16px);
+  height: auto;
+  aspect-ratio: 3 / 2;
+  margin: 10px -8px 20px;
+  opacity: 1;
+  isolation: isolate;
+}
+.research-comic > img { width: 100%; height: 100%; object-fit: contain; transition: transform .35s ease; }
+.comic-card:hover .research-comic > img { transform: translateY(-3px) rotate(-.6deg); }
+.detection-labels { position: absolute; left: 0; right: 0; bottom: 3%; display: grid; grid-template-columns: 1fr 1fr; justify-items: center; padding-inline: 10%; gap: 8%; }
+.detection-labels > span { border: 1.5px solid #252525; padding: 3px 11px; border-radius: 3px; color: #252525; font: 800 10px var(--sans); letter-spacing: 1.4px; box-shadow: 2px 2px 0 #252525; }
+.label-fake { background: #efbcad; transform: rotate(-4deg); }
+.label-real { background: #ffdb76; transform: rotate(3deg); }
+.comic-card h3 { min-height: 42px; display: flex; align-items: flex-start; font-size: 16px; line-height: 1.35; }
+.comic-card .card-tagline { margin-top: 0; }
+.comic-card .card-description { margin-bottom: 18px; }
+.comic-card .card-link { margin-top: auto; }
+[data-theme=dark] .research-comic { border-radius: 5px; overflow: hidden; }
+[data-theme=dark] .research-comic > img { filter: brightness(.88); }
+@media(max-width:1000px) and (min-width:701px) {
+  .comic-card { padding: 18px 16px; }
+  .comic-card h3 { font-size: 14px; min-height: 42px; }
+  .comic-card .research-comic { margin-bottom: 16px; }
+  .detection-labels > span { font-size: 8px; padding: 2px 7px; }
+}
+@media(max-width:700px) {
+  .comic-card { padding: 21px 23px; min-height: 0; }
+  .comic-card .card-top { position: static; inset: auto; }
+  .comic-card .research-comic { margin: 8px -8px 20px; max-height: 275px; }
+  .comic-card h3, html[lang=zh-CN] .comic-card h3 { margin-top: 0; min-height: 0; max-width: none; font-size: 18px; }
+  .comic-card .card-tagline { max-width: none; margin-top: 9px; font-size: 12px; }
+  .comic-card .card-description { margin-top: 13px; margin-bottom: 20px; font-size: 12px; }
+  .comic-card .card-link { font-size: 11px; }
+  .detection-labels > span { padding: 4px 14px; font-size: 11px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .comic-card:hover .research-comic > img { transform: none; }
+}

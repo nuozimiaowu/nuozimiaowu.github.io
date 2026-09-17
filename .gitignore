@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.vite/
+test-results/
+playwright-report/
+*.log
+.preview.pid
+output/
+docs/reference/
+public/images/research-cat*
+docs/illustration-prompt.md
+scripts/optimize-art.mjs
