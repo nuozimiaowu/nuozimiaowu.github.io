@@ -29,3 +29,14 @@ The palette uses the official site's observed colors: old-paper white `#EFEEE2`,
 The three research-card illustrations are generated adaptations based on the official character references, created at the user's request. They are not official anime scenes. Original files are in `design/research/`; WebP versions are in `public/images/research/`; full prompts are recorded in `docs/research-art-prompts.md`.
 
 The earlier generic `research-cat` illustration is not used or included in the GitHub repository.
+
+## Optional cover selection board
+
+Later on 2026-09-17, the user requested ten numbered cover choices and clarified that smoking is allowed among the optional candidates. The separate selection board at `public/art-options/index.html` includes the existing eight artwork choices and the following two additional official episode stills. The current four-slide homepage gallery remains unchanged until the user chooses; allowing smoking in the board does not change the current default cover.
+
+| Selection file | Official source | Description |
+| --- | --- | --- |
+| `public/art-options/images/09.webp` | [Episode 2 still 02](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_02-02.jpg) | Yani Neko chatting with her neighbor on the balcony; a small cigarette is visible near the bottom, without visible smoke |
+| `public/art-options/images/10.webp` | [Episode 4 still 01](https://yanineko-anime.com/wp/wp-content/uploads/2026/07/yanineko_04-01.jpg) | Close-up of Yani Neko and a bespectacled friend; no visible cigarette or smoke |
+
+Both additional originals were inspected at their full 1920 × 1080 resolution. Their URLs were observed in the official site's episode section. These selection images are resized WebP copies of official stills, not generated or retouched artwork.
