@@ -77,7 +77,7 @@ function render() {
         <div class="hero-copy">
           <div class="eyebrow"><span class="status-dot"></span>${t('PH.D. STUDENT · PURDUE UNIVERSITY','博士研究生 · 普渡大学')}</div>
           <h1>${t('Hi, I’m','你好，我是')}<br><span>Tianyi <em>Shang.</em></span><svg class="name-spark" viewBox="0 0 40 46" aria-hidden="true"><path d="m20 2 3 16 14 5-14 4-3 16-4-16L2 23l14-5Z"/></svg></h1>
-          <p class="hero-subtitle">${t('Serious research. Yani Neko state of mind.','认真研究，尼古喵喵式放空。')}</p>
+          <p class="hero-subtitle">${t('Understanding intelligence, staying curious.','理解智能，保持好奇。')}</p>
           <p class="hero-description">${t('I explore how AI <strong>perceives, reasons, and finds its way.</strong> My research spans MLLMs for AIGC detection, agentic AI, and embodied AI navigation.','我探索 AI 如何<strong>感知、推理与寻找方向。</strong>研究兴趣包括面向 AIGC 检测的多模态大模型、智能体 AI，以及具身智能导航。')}</p>
           <div class="hero-buttons"><a href="#publications" class="button button-primary">${icon('book')}${t('Explore my research','了解我的研究')}${icon('right')}</a>${external(SCHOLAR, 'Google Scholar', 'button button-secondary')}</div>
           <div class="hero-footnote">${icon('cap')}<span>${t('Advised by','导师：')} ${external(SHU, 'Prof. Shu Hu', 'inline-link')}<span class="footnote-dot">·</span>Purdue University</span></div>

@@ -31,13 +31,20 @@ Checked in the Codex Chromium in-app browser against the local site:
 - Navigation filtering still returns four papers, resetting returns five, and Chinese switching updates summaries and resource labels.
 - The updated production build and JavaScript syntax check pass.
 
-### Cover gallery and venue badges
+### Cover gallery and venue badges (initial five-image version)
 
 - Five distinct official Yani Neko images load and switch through numbered selectors, previous/next controls, clicking the image, and keyboard arrows. The gallery wraps in both directions and exposes exactly one active slide and selector.
 - Language switching preserves the selected image and translates its description. Slide animation respects reduced motion; there is no automatic rotation.
 - Layout checks at 320, 390, 768 and 1440 CSS pixels found no horizontal overflow. The initially crowded 320-pixel controls were corrected and rechecked to fit their container.
 - Publication rows keep their text-only layout and now show compact CVPR 2026, IROS 2025 or arXiv preprint 2026 badges. Venue full names are available through accessible labels and tooltips. Preprint badges translate in Chinese.
 - The gallery and dark-theme badges were visually inspected; no browser console errors were captured. A separate source review found no actionable regression.
+
+### Relaxed cover revision
+
+- The user's approved full-body official character illustration is now the default (`chara-pic01.webp`). Three official everyday stills replace the prior smoking-focused and more dramatic cover selections, for four active slides total.
+- All three source stills were visually inspected at full resolution: an everyday smile, a cheerful outdoor moment, and an outing with friends. None shows visible cigarettes or smoke.
+- Browser verification confirms all four images load, clicking the image wraps from the final slide to the approved default, and the former four selections are absent from the active gallery.
+- Widths 320, 390 and 1440 CSS pixels have no horizontal overflow; all gallery controls fit. The production build passes, with no captured browser console errors. All sixteen publications remain present.
 
 ## Independent review
 
