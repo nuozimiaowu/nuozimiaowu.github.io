@@ -1,14 +1,42 @@
 export const heroArtwork = [
   {
+    selectionId: '01',
     file: 'chara-pic01.webp',
     label: ['Meet Yani Neko', '角色立绘'],
     alt: ['Official Yani Neko character illustration with cat ears, a pale green T-shirt and blue-gray trousers.', '尼古喵喵官方角色立绘：猫耳、浅绿色 T 恤与蓝灰色长裤。'],
+    caption: ['Stay curious. Find the question worth asking.', '先保持好奇，再把问题问清楚。'],
     width: 1000, height: 1166, fit: 'contain', position: 'center',
   },
   {
+    selectionId: '09',
     file: 'hero-balcony-chat.webp',
     label: ['A balcony conversation', '阳台闲聊'],
     alt: ['Yani Neko smiles and gestures while chatting with a neighbor on the balcony under a blue sky. Official episode-two still.', '蓝天下，尼古喵喵坐在阳台上，微笑着向邻居伸手说话。动画第 2 话官方剧照。'],
+    caption: ['Talk an idea through. Turn it into an experiment together.', '和合作者聊一聊，把一个想法变成实验方案。'],
     width: 1600, height: 900, fit: 'cover', position: '35% center',
+  },
+  {
+    selectionId: '17',
+    file: 'hero-small-experiment.webp',
+    label: ['Let’s try an idea', '试试新想法'],
+    alt: ['Yani Neko smiles and raises her fist while speaking with her landlord. Official episode-ten still.', '尼古喵喵握着拳头，笑着和房东说话。动画第 10 话官方剧照。'],
+    caption: ['An idea looks promising. Time for a small experiment.', '想法有了，先跑个小实验看看。'],
+    width: 1600, height: 900, fit: 'cover', position: '32% center',
+  },
+  {
+    selectionId: '21',
+    file: 'hero-look-closer.webp',
+    label: ['A closer look', '换个视角'],
+    alt: ['A close-up of Yani Neko looking through a translucent green cup. Official episode-six still.', '尼古喵喵透过半透明绿杯观察的眼睛特写。动画第 6 话官方剧照。'],
+    caption: ['Real cues or dataset bias? Look at what the model is learning.', '换个视角，看看模型学到的是线索，还是偏差。'],
+    width: 1600, height: 900, fit: 'cover', position: '55% center',
+  },
+  {
+    selectionId: '24',
+    file: 'hero-research-break.webp',
+    label: ['A research break', '休息一会儿'],
+    alt: ['Yani Neko lies on the floor with her arms stretched overhead. Official episode-seven still.', '尼古喵喵躺在地上，双臂伸过头顶。动画第 7 话官方剧照。'],
+    caption: ['The experiment is running. My brain is taking a short break.', '实验在跑，脑子先歇一会儿。'],
+    width: 1600, height: 900, fit: 'cover', position: '18% center',
   },
 ];

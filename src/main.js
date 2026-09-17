@@ -84,12 +84,13 @@ function render() {
         </div>
         <div class="hero-art yani-hero-art" role="group" aria-roledescription="${t('carousel','轮播图')}" aria-label="${t('Yani Neko gallery','尼古喵喵画廊')}">
           <div class="anime-scene-wrap">
-            <button class="anime-stage" id="hero-next" aria-label="${t('Show next Yani Neko image','点击切换下一张尼古喵喵图片')}" aria-describedby="hero-art-status">
+            <button class="anime-stage" id="hero-next" aria-label="${t('Show next Yani Neko image','点击切换下一张尼古喵喵图片')}" aria-describedby="hero-art-status hero-research-caption">
               ${heroArtwork.map((art,index)=>`<img class="hero-slide" data-hero-slide="${index}" src="${assetUrl(`images/yanineko/${art.file}`)}" alt="${esc(t(...art.alt))}" width="${art.width}" height="${art.height}" style="object-fit:${art.fit};object-position:${art.position}" fetchpriority="${index===0?'high':'low'}" ${index!==heroIndex?'hidden':''}>`).join('')}
               <img class="anime-logo" src="${assetUrl('images/yanineko/logo.webp')}" alt="ヤニねこ" width="360" height="121">
               <span class="scene-index">${t('A LITTLE BREAK FROM RESEARCH','研究间隙，放空一下')}</span>
             </button>
             <div class="anime-panel-caption"><span>尼古喵喵 <b>ヤニねこ</b></span><span>${t('CLICK IMAGE TO SWITCH','点击图片，切换下一张')}</span></div>
+            <p class="hero-research-caption" id="hero-research-caption">${esc(t(...heroArtwork[heroIndex].caption))}</p>
           </div>
           <div class="yani-sticker"><span>ニャー。</span><small>${t('thinking… probably.','正在思考……大概吧。')}</small></div>
           <div class="anime-art-controls">
@@ -168,6 +169,7 @@ function setHeroImage(next) {
   document.querySelectorAll('[data-hero-slide]').forEach(image => { image.hidden = Number(image.dataset.heroSlide) !== heroIndex; });
   document.querySelectorAll('[data-hero-index]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.heroIndex) === heroIndex)));
   document.getElementById('hero-art-status').textContent = `${heroIndex+1} / ${heroArtwork.length} · ${t(...heroArtwork[heroIndex].label)}`;
+  document.getElementById('hero-research-caption').textContent = t(...heroArtwork[heroIndex].caption);
 }
 
 function showDialog(title,html) {
