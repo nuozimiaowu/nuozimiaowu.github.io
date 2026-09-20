@@ -32,6 +32,9 @@ body {
 .icon-button:hover { background: var(--anime-yellow); color: var(--anime-black); }
 
 .hero { padding-block: 59px 71px; min-height: 726px; gap: 65px; }
+@media(min-width:701px) {
+  .hero-copy { align-self: start; }
+}
 .hero-copy > .eyebrow { letter-spacing: 1.3px; }
 .status-dot { background: var(--anime-yellow); box-shadow: 0 0 0 4px #ffb40026; }
 .hero h1 { font-family: var(--sans); font-weight: 800; font-size: clamp(49px, 4.8vw, 68px); line-height: 1.13; letter-spacing: -3.7px; margin-top: 26px; }
@@ -39,6 +42,9 @@ body {
 .name-spark { fill: var(--anime-yellow); left: 57%; top: 9px; }
 .hero-subtitle { font-family: var(--serif); font-size: 18px; font-style: italic; font-weight: 400; margin-top: 25px; }
 .hero-description { font-size: 14px; line-height: 1.9; }
+.hero-email { display: inline-flex; align-items: center; gap: 9px; margin-top: 15px; padding-block: 5px; color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.hero-email .icon { width: 18px; height: 18px; flex-shrink: 0; }
+.hero-email:hover { text-decoration-color: var(--anime-yellow); }
 .button { border-radius: 3px; border: 1.5px solid var(--ink); }
 .button-primary { background: var(--anime-yellow); color: var(--anime-black); box-shadow: 3px 3px 0 var(--anime-black); }
 .button-primary:hover { background: #ffc542; box-shadow: 5px 5px 0 var(--anime-black); transform: translate(-1px, -1px); }
