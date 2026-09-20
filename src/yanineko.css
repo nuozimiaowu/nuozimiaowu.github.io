@@ -42,9 +42,9 @@ body {
 .name-spark { fill: var(--anime-yellow); left: 57%; top: 9px; }
 .hero-subtitle { font-family: var(--serif); font-size: 18px; font-style: italic; font-weight: 400; margin-top: 25px; }
 .hero-description { font-size: 14px; line-height: 1.9; }
-.hero-email { display: inline-flex; align-items: center; gap: 9px; margin-top: 15px; padding-block: 5px; color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
-.hero-email .icon { width: 18px; height: 18px; flex-shrink: 0; }
-.hero-email:hover { text-decoration-color: var(--anime-yellow); }
+.hero-buttons { flex-wrap: wrap; gap: 8px; }
+.hero-buttons .button { gap: 7px; padding-inline: 12px; font-size: 11px; white-space: nowrap; }
+.hero-buttons .icon { flex-shrink: 0; }
 .button { border-radius: 3px; border: 1.5px solid var(--ink); }
 .button-primary { background: var(--anime-yellow); color: var(--anime-black); box-shadow: 3px 3px 0 var(--anime-black); }
 .button-primary:hover { background: #ffc542; box-shadow: 5px 5px 0 var(--anime-black); transform: translate(-1px, -1px); }

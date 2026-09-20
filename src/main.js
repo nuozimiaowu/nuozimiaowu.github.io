@@ -81,9 +81,8 @@ function render() {
           <h1>${t('Hi, I’m','你好，我是')}<br><span>Tianyi <em>Shang.</em></span><svg class="name-spark" viewBox="0 0 40 46" aria-hidden="true"><path d="m20 2 3 16 14 5-14 4-3 16-4-16L2 23l14-5Z"/></svg></h1>
           <p class="hero-subtitle">${t('Understanding intelligence, staying curious.','理解智能，保持好奇。')}</p>
           <p class="hero-description hero-bio">${t(`I’m a Ph.D. student at Purdue University, advised by ${external(SHU, 'Prof. Shu Hu', 'inline-link')}. Previously, I studied at Fuzhou University and worked closely with ${external(LI, 'Prof. Zhenyu Li', 'inline-link')}.`,`我是普渡大学的博士研究生，导师是 ${external(SHU, 'Shu Hu 教授', 'inline-link')}。本科就读于福州大学，并与 ${external(LI, 'Zhenyu Li 教授', 'inline-link')}开展深入的科研合作。`)}</p>
-          <a class="hero-email" href="mailto:${EMAIL}" aria-label="${t('Email','发送邮件至')} ${EMAIL}">${icon('mail')}<span>${EMAIL}</span></a>
           <p class="hero-description">${t('My research spans <strong>MLLMs for AIGC detection, agentic AI, and embodied AI navigation.</strong>','我的研究方向包括<strong>面向 AIGC 检测的多模态大模型、智能体 AI，以及具身智能导航。</strong>')}</p>
-          <div class="hero-buttons"><a href="#publications" class="button button-primary">${icon('book')}${t('Explore my research','了解我的研究')}${icon('right')}</a>${external(SCHOLAR, 'Google Scholar', 'button button-secondary')}</div>
+          <div class="hero-buttons"><a href="#publications" class="button button-primary">${icon('book')}${t('Explore my research','了解我的研究')}${icon('right')}</a>${external(SCHOLAR, 'Google Scholar', 'button button-secondary')}<a class="button button-secondary hero-email" href="mailto:${EMAIL}" aria-label="${t('Email','发送邮件至')} ${EMAIL}">${icon('mail')}<span>${EMAIL}</span></a></div>
         </div>
         <div class="hero-art yani-hero-art" role="group" aria-roledescription="${t('carousel','轮播图')}" aria-label="${t('Yani Neko gallery','尼古喵喵画廊')}">
           <div class="anime-scene-wrap">
