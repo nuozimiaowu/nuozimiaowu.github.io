@@ -113,6 +113,8 @@ h2 { font-family: var(--sans); font-size: 34px; font-weight: 800; letter-spacing
 .contact-section::after { border-color: #25252525; }
 .contact-copy > .eyebrow, .contact-copy > p, .contact-copy h2, .contact-links > .text-link { color: var(--anime-black); }
 .contact-copy h2 { font-size: 43px; font-weight: 800; }
+.contact-email { display: inline-flex; align-items: center; gap: 9px; margin-top: 18px; color: var(--anime-black); font-size: 15px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.contact-email .icon { width: 18px; height: 18px; flex-shrink: 0; }
 .contact-section .button-primary { color: #fff; background: var(--anime-black); box-shadow: none; }
 .yani-companion { height: 245px; width: 280px; margin-right: 0; }
 .yani-expression { position: absolute; width: 245px; height: 183px; left: 16px; bottom: 25px; background-image: url('/images/yanineko/chara-face01.webp'); background-size: 490px 183px; background-position: 0 0; background-repeat: no-repeat; transition: transform .25s; }
